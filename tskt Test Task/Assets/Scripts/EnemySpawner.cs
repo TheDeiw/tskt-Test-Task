@@ -21,13 +21,15 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         float angle = Random.Range(0f, Mathf.PI * 2f);
-
         float distance = Random.Range(minSpawnRadius, maxSpawnRadius);
 
         Vector3 offset = new Vector3(Mathf.Cos(angle) * distance, 0f, Mathf.Sin(angle) * distance);
-
         Vector3 spawnPosition = player.transform.position + offset;
 
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        if (!Physics.CheckSphere(spawnPosition, 1f))
+        {
+            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        }
+        //Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }
