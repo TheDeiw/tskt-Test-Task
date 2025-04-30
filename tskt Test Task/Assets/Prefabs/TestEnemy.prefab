@@ -64,8 +64,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.030679, y: 1.5911913, z: 2.679314}
-  m_Center: {x: 0.03689179, y: 0.29559565, z: -0.0015507936}
+  m_Size: {x: 2.030679, y: 1.7285633, z: 2.679314}
+  m_Center: {x: 0.036891818, y: 0.22690964, z: -0.0015507936}
 --- !u!54 &8043813027665622739
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5666372755743178093}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -91,7 +91,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!114 &-1232118968227294343
 MonoBehaviour:

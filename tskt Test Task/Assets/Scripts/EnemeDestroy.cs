@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,10 @@ public class EnemeDestroy : MonoBehaviour
     public float rotationSpeed = 5f;
     public PlayerMovement playerMovement;
     private Vector3 direction;
+
+    public GameObject laserPrefab;         // ѕрефаб промен€
+    public float beamDuration = 0.2f;      // як довго ≥снуЇ пром≥нь
+
     void Update()
     {
         GameObject closest = FindTheClosest();
@@ -34,6 +39,16 @@ public class EnemeDestroy : MonoBehaviour
         {
             if (closest != null)
             {
+                Vector3 start = gameObject.transform.position;
+                Vector3 end = closest.transform.position;
+                Vector3 direction = end - start;
+                float distance = direction.magnitude;
+
+                GameObject laser = Instantiate(laserPrefab, start + direction / 2f, Quaternion.LookRotation(direction));
+
+                laser.transform.localScale = new Vector3(0.05f, 0.05f, distance);
+
+                Destroy(laser, beamDuration);
                 Destroy(closest);
             }
         }
@@ -47,4 +62,5 @@ public class EnemeDestroy : MonoBehaviour
             .FirstOrDefault();
         return closest;
     }
+
 }
