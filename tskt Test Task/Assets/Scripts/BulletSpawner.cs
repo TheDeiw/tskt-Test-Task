@@ -21,8 +21,4 @@ public class BulletSpawner : MonoBehaviour
 
         bullet.GetComponent<BulletMovement>().SetDirection(direction, bulletSpeed);
     }
-    //void Update()
-    //{
-    //    bullet.transform.position += direction * bulletSpeed * Time.deltaTime;
-    //}
 }

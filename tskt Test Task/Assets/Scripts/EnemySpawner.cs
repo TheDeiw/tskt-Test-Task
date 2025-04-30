@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    void SpawnEnemy()
+    private void SpawnEnemy()
     {
         float angle = Random.Range(0f, Mathf.PI * 2f);
         float distance = Random.Range(minSpawnRadius, maxSpawnRadius);
