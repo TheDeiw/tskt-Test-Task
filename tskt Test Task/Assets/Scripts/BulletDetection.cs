@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class BulletDetection : MonoBehaviour
 {
-    private int maxHealth = 4;
+    public int maxHealth;
     private int currentHealth;
 
     public HealthBar healthBar;
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
-    // Update is called once per frame
     void Update()
     {
         if (currentHealth <= 0)
@@ -29,8 +31,10 @@ public class BulletDetection : MonoBehaviour
         {
             Destroy(other.gameObject);
             currentHealth--;
-            healthBar.SetHealth(currentHealth);
-            Console.WriteLine("Hit by bullet");
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(currentHealth);
+            }
         }
     }
 }

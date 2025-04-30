@@ -9,5 +9,12 @@ public class UI_Buttons : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
+    public void ToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
