@@ -12,13 +12,13 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             SpawnEnemy();
         }
     }
 
-    private void SpawnEnemy()
+    public void SpawnEnemy()
     {
         float angle = Random.Range(0f, Mathf.PI * 2f);
         float distance = Random.Range(minSpawnRadius, maxSpawnRadius);

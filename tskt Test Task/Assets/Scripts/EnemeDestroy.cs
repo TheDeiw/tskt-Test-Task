@@ -12,8 +12,8 @@ public class EnemeDestroy : MonoBehaviour
     public PlayerMovement playerMovement;
     private Vector3 direction;
 
-    public GameObject laserPrefab;         // ѕрефаб промен€
-    public float beamDuration = 0.2f;      // як довго ≥снуЇ пром≥нь
+    public GameObject laserPrefab;
+    public float beamDuration = 0.2f;
 
     void Update()
     {
@@ -35,7 +35,7 @@ public class EnemeDestroy : MonoBehaviour
             tankGun.transform.rotation = Quaternion.Lerp(tankGun.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (closest != null)
             {
