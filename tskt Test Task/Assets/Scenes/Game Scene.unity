@@ -3286,6 +3286,10 @@ PrefabInstance:
       propertyPath: explosionSound
       value: 
       objectReference: {fileID: 1699388034}
+    - target: {fileID: 1127269604692812023, guid: 9e8b3edcb6186744aba887203c3c6873, type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 6736595870537854314, guid: 445f370c8b8e5864b81f388ae53f09ad, type: 3}
     - target: {fileID: 1293137413131229010, guid: 9e8b3edcb6186744aba887203c3c6873, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3362,6 +3366,10 @@ PrefabInstance:
       propertyPath: lineRenderer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3757359146129121152, guid: 9e8b3edcb6186744aba887203c3c6873, type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 6736595870537854314, guid: 445f370c8b8e5864b81f388ae53f09ad, type: 3}
     - target: {fileID: 6916725977343876112, guid: 9e8b3edcb6186744aba887203c3c6873, type: 3}
       propertyPath: explosionSound
       value: 

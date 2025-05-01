@@ -17,6 +17,7 @@ public class EnemeDestroy : MonoBehaviour
 
     public AudioSource explodeSound;
 
+    public ParticleSystem explosionEffect;
 
     void Update()
     {
@@ -38,6 +39,9 @@ public class EnemeDestroy : MonoBehaviour
                 GameObject laser = Instantiate(laserPrefab, start + direction / 2f, Quaternion.LookRotation(direction));
                 laser.transform.localScale = new Vector3(0.05f, 0.05f, distance);
                 Destroy(laser, beamDuration);
+
+                Instantiate(explosionEffect, end, Quaternion.identity);
+                Destroy(explosionEffect.gameObject, explosionEffect.main.duration);
 
                 Destroy(closest);
                 Debug.Log("Enemy destroyed by player");

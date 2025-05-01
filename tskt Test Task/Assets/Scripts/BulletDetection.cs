@@ -10,7 +10,8 @@ public class BulletDetection : MonoBehaviour
 
     public HealthBar healthBar;
 
-    
+    public ParticleSystem explosionEffect;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -23,6 +24,9 @@ public class BulletDetection : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            //explosionEffect.Play();
+            Destroy(explosionEffect.gameObject, explosionEffect.main.duration);
             Destroy(gameObject);
             Debug.Log("Enemy destroyed by bullet");
         }
