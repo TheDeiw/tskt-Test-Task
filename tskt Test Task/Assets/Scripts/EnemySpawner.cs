@@ -21,7 +21,6 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy()
     {
         int attempts = 10;
-
         for (int i = 0; i < attempts; i++)
         {
             float angle = Random.Range(0f, Mathf.PI * 2f);
@@ -30,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
             Vector3 offset = new Vector3(Mathf.Cos(angle) * distance, 0f, Mathf.Sin(angle) * distance);
             Vector3 spawnPosition = player.transform.position + offset;
 
+            // Check if the spawn position is valid
             if (!Physics.CheckSphere(spawnPosition, 1f))
             {
                 Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);

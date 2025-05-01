@@ -21,6 +21,42 @@ public class EnemeDestroy : MonoBehaviour
     void Update()
     {
         GameObject closest = FindTheClosest();
+        GunRotation(closest);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (closest != null)
+            {
+                explodeSound.Play();
+
+                // Parameters for the laser
+                Vector3 start = gameObject.transform.position;
+                Vector3 end = closest.transform.position;
+                Vector3 direction = end - start;
+                float distance = direction.magnitude;
+
+                GameObject laser = Instantiate(laserPrefab, start + direction / 2f, Quaternion.LookRotation(direction));
+                laser.transform.localScale = new Vector3(0.05f, 0.05f, distance);
+                Destroy(laser, beamDuration);
+
+                Destroy(closest);
+                Debug.Log("Enemy destroyed by player");
+            }
+        }
+    }
+
+    private GameObject FindTheClosest()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = enemies
+            .OrderBy(e => Vector3.Distance(transform.position, e.transform.position))
+            .FirstOrDefault();
+        return closest;
+    }
+
+    // Rotate the gun towards the closest enemy
+    private void GunRotation(GameObject closest)
+    {
         if (closest != null)
         {
             direction = closest.transform.position - tankGun.transform.position;
@@ -37,36 +73,6 @@ public class EnemeDestroy : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(direction);
             tankGun.transform.rotation = Quaternion.Lerp(tankGun.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (closest != null)
-            {
-                explodeSound.Play();
-                Vector3 start = gameObject.transform.position;
-                Vector3 end = closest.transform.position;
-                Vector3 direction = end - start;
-                float distance = direction.magnitude;
-
-                GameObject laser = Instantiate(laserPrefab, start + direction / 2f, Quaternion.LookRotation(direction));
-                
-                laser.transform.localScale = new Vector3(0.05f, 0.05f, distance);
-
-                Destroy(laser, beamDuration);
-                Destroy(closest);
-                
-                Debug.Log("Enemy destroyed by player");
-            }
-        }
-    }
-
-    private GameObject FindTheClosest()
-    {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closest = enemies
-            .OrderBy(e => Vector3.Distance(transform.position, e.transform.position))
-            .FirstOrDefault();
-        return closest;
     }
 
 }

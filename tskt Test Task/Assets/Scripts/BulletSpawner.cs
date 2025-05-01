@@ -19,6 +19,7 @@ public class BulletSpawner : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
 
+        // Pass parameters to the bullet
         bullet.GetComponent<BulletMovement>().SetDirection(direction, bulletSpeed);
     }
 }

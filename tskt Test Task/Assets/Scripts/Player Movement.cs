@@ -20,23 +20,29 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     public Animator animator;
+
     public Vector3 moveDirectionForGun;
     void Update()
     {
+        // Code for correct work with Y velocity and character controller
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
+        // Player movement
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+        // Animation
         animator.SetFloat("Speed", direction.magnitude);
 
+        // If the player is moving
         if (direction.magnitude >= 0.1f)
         {
+            // Calculate the target angle based on camera rotation
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
