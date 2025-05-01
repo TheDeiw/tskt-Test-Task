@@ -362,7 +362,7 @@ MonoBehaviour:
   tankGun: {fileID: 4860179115524768178}
   rotationSpeed: 5
   playerMovement: {fileID: 7588859455098040922}
-  laserPrefab: {fileID: 0}
+  laserPrefab: {fileID: 1153658817425408870, guid: 63c760869e5879a44b63a76bbfa226e5, type: 3}
   beamDuration: 0.1
 --- !u!114 &1127269604692812023
 MonoBehaviour:
@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6cf947248bad44f8915642ced4f9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   healthBar: {fileID: 6916725977343876112}
 --- !u!95 &3704478701213700466
 Animator:

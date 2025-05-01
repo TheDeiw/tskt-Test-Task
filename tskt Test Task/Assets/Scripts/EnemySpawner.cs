@@ -20,16 +20,24 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        float angle = Random.Range(0f, Mathf.PI * 2f);
-        float distance = Random.Range(minSpawnRadius, maxSpawnRadius);
+        int attempts = 10;
+        bool spawned = false;
 
-        Vector3 offset = new Vector3(Mathf.Cos(angle) * distance, 0f, Mathf.Sin(angle) * distance);
-        Vector3 spawnPosition = player.transform.position + offset;
-
-        if (!Physics.CheckSphere(spawnPosition, 1f))
+        for (int i = 0; i < attempts; i++)
         {
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            float angle = Random.Range(0f, Mathf.PI * 2f);
+            float distance = Random.Range(minSpawnRadius, maxSpawnRadius);
+
+            Vector3 offset = new Vector3(Mathf.Cos(angle) * distance, 0f, Mathf.Sin(angle) * distance);
+            Vector3 spawnPosition = player.transform.position + offset;
+
+            if (!Physics.CheckSphere(spawnPosition, 1f))
+            {
+                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                Debug.Log($"Enemy spawned on attempt {i + 1} at {spawnPosition}");
+                spawned = true;
+                break;
+            }
         }
-        //Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }

@@ -890,8 +890,8 @@ GameObject:
   - component: {fileID: 781082253}
   - component: {fileID: 781082252}
   - component: {fileID: 781082251}
-  - component: {fileID: 781082254}
   - component: {fileID: 781082250}
+  - component: {fileID: 781082254}
   - component: {fileID: 781082255}
   m_Layer: 5
   m_Name: Canvas
@@ -2365,6 +2365,10 @@ PrefabInstance:
     - target: {fileID: 786985141961202452, guid: 9e8b3edcb6186744aba887203c3c6873, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
       value: 0.38738823
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127269604692812023, guid: 9e8b3edcb6186744aba887203c3c6873, type: 3}
+      propertyPath: maxHealth
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1293137413131229010, guid: 9e8b3edcb6186744aba887203c3c6873, type: 3}
       propertyPath: m_AnchorMax.x

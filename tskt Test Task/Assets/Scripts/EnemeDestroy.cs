@@ -50,6 +50,7 @@ public class EnemeDestroy : MonoBehaviour
 
                 Destroy(laser, beamDuration);
                 Destroy(closest);
+                Debug.Log("Enemy destroyed by player");
             }
         }
     }

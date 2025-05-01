@@ -22,6 +22,7 @@ public class BulletDetection : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            Debug.Log("Enemy destroyed by bullet");
         }
     }
 
