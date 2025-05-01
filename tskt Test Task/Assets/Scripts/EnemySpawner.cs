@@ -21,7 +21,6 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy()
     {
         int attempts = 10;
-        bool spawned = false;
 
         for (int i = 0; i < attempts; i++)
         {
@@ -35,7 +34,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
                 Debug.Log($"Enemy spawned on attempt {i + 1} at {spawnPosition}");
-                spawned = true;
                 break;
             }
         }

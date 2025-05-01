@@ -9,8 +9,10 @@ public class HealthBar : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
+    public AudioSource explosionSound;
     public void SetHealth(int health)
     {
+        explosionSound.Play();
         slider.value = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);

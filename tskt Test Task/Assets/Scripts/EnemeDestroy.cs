@@ -13,7 +13,10 @@ public class EnemeDestroy : MonoBehaviour
     private Vector3 direction;
 
     public GameObject laserPrefab;
-    public float beamDuration = 0.2f;
+    public float beamDuration = 0.3f;
+
+    public AudioSource explodeSound;
+
 
     void Update()
     {
@@ -39,17 +42,19 @@ public class EnemeDestroy : MonoBehaviour
         {
             if (closest != null)
             {
+                explodeSound.Play();
                 Vector3 start = gameObject.transform.position;
                 Vector3 end = closest.transform.position;
                 Vector3 direction = end - start;
                 float distance = direction.magnitude;
 
                 GameObject laser = Instantiate(laserPrefab, start + direction / 2f, Quaternion.LookRotation(direction));
-
+                
                 laser.transform.localScale = new Vector3(0.05f, 0.05f, distance);
 
                 Destroy(laser, beamDuration);
                 Destroy(closest);
+                
                 Debug.Log("Enemy destroyed by player");
             }
         }
