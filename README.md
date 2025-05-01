@@ -5,8 +5,8 @@
 - **Description**: A game where the player controls a tank, destroys enemies using laser, avoids attacks, and aims to survive as long as possible.
 - **Core Mechanics**:
   - Player movement and camera-based rotation.
-  - Shooting lasers.
-  - Enemy spawning around the player by clicking on certain button.
+  - Shooting lasers in enemies by clicking on space.
+  - Enemy spawning around the player by clicking on E or button in UI.
   - Health system for player and enemies.
   - UI for displaying health and game-over screen.
 
@@ -22,6 +22,7 @@
   - `Enemy`: Enemies that chase the player.
   - `Bullet`: Bullets fired by enemies.
   - `Laser`: Laser is fired by player.
+  - `Explode`: Particle system object.
   - `UI`: Interface elements (Main Menu, LosePanel).
 
 ## Script Descriptions
@@ -107,6 +108,7 @@ Handles damage from bullets and updates health.
 
 - `maxHealth`: `int` — Maximum health.
 - `healthBar`: `HealthBar` — Reference to the health bar.
+- `explosionEffect`: `ParticleSystem` — Reference to explosion particle system.
 
 #### Private Variables
 
@@ -142,7 +144,7 @@ Spawns enemies around the player.
 #### Methods
 
 - `Update()`: Calls `SpawnEnemy()` when "E" is pressed.
-- `SpawnEnemy()`: Spawns an enemy at a random position.
+- `SpawnEnemy()`: Spawns an enemy at a random position in radius between 20 and 30 meters.
 
 #### Logic
 
@@ -293,6 +295,14 @@ Controls the player’s gun and destroys enemies with a laser.
 
 ---
 
+### Billboard.cs
+
+#### Purpose
+
+Showcase healthbar canvas in front of camera 
+
+---
+
 ## Script Interactions
 
 - `PlayerMovement` shares `moveDirectionForGun` with `EnemeDestroy` for gun rotation.
@@ -306,18 +316,12 @@ Controls the player’s gun and destroys enemies with a laser.
 - `CheckDeath`: Shows the game-over screen.
 - Audio: Explosion (`explodeSound`), damage (`explosionSound`).
 
-## Special Mechanics
+## Game Screenshots
+Menu
+![image](https://github.com/user-attachments/assets/3a42f077-ba26-4231-a7bb-1b513eae8c4f)
 
-- **Laser**: Targets the closest enemy via `EnemeDestroy`.
-- **Enemy Spawn**: Random radius via `EnemySpawner`.
+Game
+![image](https://github.com/user-attachments/assets/7618c944-fe06-431b-a002-0fd1e2c8196c)
+![image](https://github.com/user-attachments/assets/6841ccca-420b-4812-977b-b56ec41f76f9)
 
-## Configuration and Parameters
 
-- `speed`, `turnSmoothTime` in `PlayerMovement`.
-- `minSpawnRadius`, `maxSpawnRadius` in `EnemySpawner`.
-- `bulletSpeed` in `BulletSpawner`.
-
-## Known Issues and TODO
-
-- Add an enemy spawn limit.
-- Optimize spawning to avoid overlaps.
