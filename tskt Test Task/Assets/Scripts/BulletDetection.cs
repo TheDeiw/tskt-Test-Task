@@ -9,6 +9,8 @@ public class BulletDetection : MonoBehaviour
     private int currentHealth;
 
     public HealthBar healthBar;
+
+    
     void Start()
     {
         currentHealth = maxHealth;

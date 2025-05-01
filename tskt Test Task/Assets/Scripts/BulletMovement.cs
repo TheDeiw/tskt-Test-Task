@@ -17,4 +17,13 @@ public class BulletMovement : MonoBehaviour
     {
         transform.position += direction * speed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Bullet destroyed by wall");
+        }
+    }
 }
