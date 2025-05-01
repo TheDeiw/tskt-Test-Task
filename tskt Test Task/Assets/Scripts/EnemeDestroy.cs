@@ -41,7 +41,6 @@ public class EnemeDestroy : MonoBehaviour
                 Destroy(laser, beamDuration);
 
                 Instantiate(explosionEffect, end, Quaternion.identity);
-                Destroy(explosionEffect.gameObject, explosionEffect.main.duration);
 
                 Destroy(closest);
                 Debug.Log("Enemy destroyed by player");
